@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useDebugValue } from 'react';
 
 import './Edit.css';
 
@@ -20,14 +20,17 @@ export default class Edit extends Component {
   }
 
   updatePost() {
-
+    const {id,hideEdit,updatePostFn}= this.props;
+    const {text} = this.state;
+    updatePostFn(id,text)
+    hideEdit()
   }
 
   render() {
     // More destructuring!
     const { hideEdit } = this.props;
     const { text } = this.state;
-
+    
     return (
       <section className="Edit__parent">
 
